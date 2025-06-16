@@ -77,6 +77,18 @@ const Hero = () => {
         {/* Glass Card Container */}
         <div className="backdrop-blur-sm bg-white/5 rounded-3xl border border-white/10 p-8 md:p-12 shadow-2xl">
           <div className="animate-fade-in">
+            {/* Profile Photo */}
+            <div className="flex justify-center mb-8">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-lg opacity-75 animate-pulse"></div>
+                <img 
+                  src="https://i.postimg.cc/ZKtXmtFT/pp-photo.jpg" 
+                  alt="Mohamed Riyaskhan M" 
+                  className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-white/20 shadow-2xl transition-transform hover:scale-105"
+                />
+              </div>
+            </div>
+
             {/* Social Links */}
             <div className="flex justify-center gap-4 mb-8">
               <Button

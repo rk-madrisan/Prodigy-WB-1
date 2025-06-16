@@ -11,27 +11,50 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Languages",
-      skills: ["HTML5", "CSS3", "JavaScript", "Python", "Shell Scripting"],
+      skills: [
+        { name: "HTML5", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+        { name: "CSS3", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+        { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "Shell Scripting", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" }
+      ],
       color: "from-blue-500 to-cyan-500"
     },
     {
       title: "Front-End",
-      skills: ["React.js", "Responsive Design", "Modern UI/UX"],
+      skills: [
+        { name: "React.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+        { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" },
+        { name: "Bootstrap", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" }
+      ],
       color: "from-green-500 to-emerald-500"
     },
     {
       title: "Back-End",
-      skills: ["Node.js", "REST API Development", "Server Architecture"],
+      skills: [
+        { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+        { name: "Express.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+        { name: "REST API", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" }
+      ],
       color: "from-purple-500 to-violet-500"
     },
     {
       title: "Database",
-      skills: ["MongoDB", "MySQL", "Database Design"],
+      skills: [
+        { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+        { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+        { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" }
+      ],
       color: "from-orange-500 to-red-500"
     },
     {
       title: "Tools & Others",
-      skills: ["Visual Studio Code", "GitHub", "Postman", "Git"],
+      skills: [
+        { name: "Visual Studio Code", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+        { name: "GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+        { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+        { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" }
+      ],
       color: "from-pink-500 to-rose-500"
     }
   ];
@@ -68,11 +91,11 @@ const Skills = () => {
                 <span className="text-white font-bold text-lg">{category.title[0]}</span>
               </div>
               <h3 className="text-xl font-semibold mb-4 text-white">{category.title}</h3>
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {category.skills.map((skill, skillIndex) => (
                   <div 
-                    key={skill}
-                    className={`px-3 py-2 rounded-lg bg-gray-800 text-gray-300 text-sm transition-all duration-300 ${
+                    key={skill.name}
+                    className={`flex items-center gap-3 px-3 py-2 rounded-lg bg-gray-800 text-gray-300 text-sm transition-all duration-300 ${
                       hoveredSkill === category.title ? 'bg-gray-700 text-white' : ''
                     }`}
                     style={{ 
@@ -80,7 +103,15 @@ const Skills = () => {
                       animation: hoveredSkill === category.title ? 'fade-in 0.3s ease-out forwards' : ''
                     }}
                   >
-                    {skill}
+                    <img 
+                      src={skill.logo} 
+                      alt={skill.name} 
+                      className="w-5 h-5 object-contain"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                    <span>{skill.name}</span>
                   </div>
                 ))}
               </div>
