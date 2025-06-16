@@ -1,8 +1,12 @@
 
 import { useState } from "react";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [headerRef, headerVisible] = useScrollAnimation();
+  const [skillsRef, skillsVisible] = useScrollAnimation();
+  const [languagesRef, languagesVisible] = useScrollAnimation();
 
   const skillCategories = [
     {
@@ -42,7 +46,7 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 bg-gray-800">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Skills & Expertise
           </h2>
@@ -51,13 +55,14 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div ref={skillsRef} className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 transition-all duration-700 ${skillsVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
           {skillCategories.map((category, index) => (
             <div 
               key={category.title}
               className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105"
               onMouseEnter={() => setHoveredSkill(category.title)}
               onMouseLeave={() => setHoveredSkill(null)}
+              style={{ animationDelay: skillsVisible ? `${index * 0.1}s` : '0s' }}
             >
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} flex items-center justify-center mb-4`}>
                 <span className="text-white font-bold text-lg">{category.title[0]}</span>
@@ -83,7 +88,7 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+        <div ref={languagesRef} className={`bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 transition-all duration-700 ${languagesVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
           <h3 className="text-2xl font-semibold mb-8 text-center text-white">Languages</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {languages.map((lang, index) => (
@@ -94,9 +99,11 @@ const Skills = () => {
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2">
                   <div 
-                    className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-1000 ease-out"
+                    className={`bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-1000 ease-out ${
+                      languagesVisible ? 'animate-scale-in' : 'w-0'
+                    }`}
                     style={{ 
-                      width: `${lang.percentage}%`,
+                      width: languagesVisible ? `${lang.percentage}%` : '0%',
                       animationDelay: `${index * 200}ms`
                     }}
                   ></div>

@@ -1,5 +1,11 @@
 
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
+
 const Education = () => {
+  const [headerRef, headerVisible] = useScrollAnimation();
+  const [timelineRef, timelineVisible] = useScrollAnimation();
+  const [accomplishmentsRef, accomplishmentsVisible] = useScrollAnimation();
+
   const educationData = [
     {
       degree: "MCA (Master of Computer Application)",
@@ -38,7 +44,7 @@ const Education = () => {
   return (
     <section id="education" className="py-20 bg-gray-800">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Education Journey
           </h2>
@@ -48,7 +54,7 @@ const Education = () => {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="relative">
+          <div ref={timelineRef} className={`relative transition-all duration-700 ${timelineVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
             {/* Timeline line */}
             <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-purple-500 to-pink-500"></div>
             
@@ -57,7 +63,10 @@ const Education = () => {
                 key={index} 
                 className={`relative flex items-center mb-12 ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                } flex-col md:flex-row`}
+                } flex-col md:flex-row transition-all duration-700 ${
+                  timelineVisible ? 'animate-fade-in' : 'opacity-0'
+                }`}
+                style={{ animationDelay: timelineVisible ? `${index * 0.2}s` : '0s' }}
               >
                 {/* Timeline dot */}
                 <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-gray-800 z-10"></div>
@@ -99,7 +108,7 @@ const Education = () => {
         </div>
 
         {/* Accomplishments section */}
-        <div className="mt-20 bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+        <div ref={accomplishmentsRef} className={`mt-20 bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 transition-all duration-700 ${accomplishmentsVisible ? 'animate-scale-in' : 'opacity-0'}`}>
           <h3 className="text-2xl font-bold text-center mb-8 text-white">Accomplishments & Activities</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {[
@@ -107,7 +116,13 @@ const Education = () => {
               { title: "NSS Volunteer", description: "National Service Scheme participation", icon: "🤝" },
               { title: "BIS Awareness Programs", description: "Bureau of Indian Standards initiatives", icon: "📋" }
             ].map((accomplishment, index) => (
-              <div key={index} className="text-center p-4 rounded-xl bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
+              <div 
+                key={index} 
+                className={`text-center p-4 rounded-xl bg-gray-800 hover:bg-gray-700 transition-all duration-500 ${
+                  accomplishmentsVisible ? 'animate-fade-in' : 'opacity-0'
+                }`}
+                style={{ animationDelay: accomplishmentsVisible ? `${index * 0.1}s` : '0s' }}
+              >
                 <div className="text-4xl mb-3">{accomplishment.icon}</div>
                 <h4 className="text-lg font-semibold text-white mb-2">{accomplishment.title}</h4>
                 <p className="text-gray-400 text-sm">{accomplishment.description}</p>

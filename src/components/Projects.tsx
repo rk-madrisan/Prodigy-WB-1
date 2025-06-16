@@ -1,8 +1,13 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const Projects = () => {
+  const [headerRef, headerVisible] = useScrollAnimation();
+  const [projectRef, projectVisible] = useScrollAnimation();
+  const [footerRef, footerVisible] = useScrollAnimation();
+
   const projects = [
     {
       title: "Personal Portfolio Website",
@@ -23,7 +28,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-gray-900">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Featured Projects
           </h2>
@@ -36,7 +41,10 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={project.title}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-purple-500/50 transition-all duration-500 hover:transform hover:scale-105 group"
+              ref={projectRef}
+              className={`bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-purple-500/50 transition-all duration-700 hover:transform hover:scale-105 group ${
+                projectVisible ? 'animate-scale-in' : 'opacity-0'
+              }`}
             >
               <div className="flex flex-col lg:flex-row gap-8">
                 <div className="flex-1">
@@ -94,7 +102,7 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div ref={footerRef} className={`text-center mt-12 transition-all duration-700 ${footerVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           <p className="text-gray-400 text-lg">
             More projects coming soon as I continue my development journey!
           </p>
