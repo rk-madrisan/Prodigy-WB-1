@@ -95,6 +95,7 @@ const Hero = () => {
                 variant="ghost"
                 size="icon"
                 className="rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-110"
+                onClick={() => window.open('https://github.com/rk-madrisan/rk-madrisan.git', '_blank')}
               >
                 <Github className="h-5 w-5 text-white" />
               </Button>
@@ -102,6 +103,7 @@ const Hero = () => {
                 variant="ghost"
                 size="icon"
                 className="rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-110"
+                onClick={() => window.open('https://www.linkedin.com/in/mohamed-riyaskhan-837297369', '_blank')}
               >
                 <Linkedin className="h-5 w-5 text-white" />
               </Button>
@@ -109,6 +111,7 @@ const Hero = () => {
                 variant="ghost"
                 size="icon"
                 className="rounded-full bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-110"
+                onClick={() => window.location.href = 'mailto:mriyaskhan.official@gmail.com'}
               >
                 <Mail className="h-5 w-5 text-white" />
               </Button>
