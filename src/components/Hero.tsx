@@ -82,7 +82,7 @@ const Hero = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-lg opacity-75 animate-pulse"></div>
                 <img 
-                  src="https://i.postimg.cc/ZKtXmtFT/pp-photo.jpg" 
+                  src="https://i.postimg.cc/tgSwN9TR/pp-photo.jpg" 
                   alt="Mohamed Riyaskhan M" 
                   className="relative w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-white/20 shadow-2xl transition-transform hover:scale-105"
                 />
