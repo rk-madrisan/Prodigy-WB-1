@@ -38,23 +38,19 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Dynamic Background with Green Theme */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-900 to-green-900"></div>
-      
-      {/* Animated Geometric Shapes */}
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900">
+      {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <div 
-          className="absolute w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl animate-pulse"
+          className="absolute w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"
           style={{
             left: `${20 + mousePosition.x * 0.02}%`,
             top: `${30 + mousePosition.y * 0.02}%`,
             transform: `translateY(${scrollY * 0.5}px)`,
-            animationDelay: '0s'
           }}
         ></div>
         <div 
-          className="absolute w-80 h-80 bg-teal-500/15 rounded-full blur-3xl animate-pulse"
+          className="absolute w-80 h-80 bg-pink-500/15 rounded-full blur-3xl animate-pulse"
           style={{
             right: `${15 + mousePosition.x * 0.01}%`,
             bottom: `${20 + mousePosition.y * 0.01}%`,
@@ -63,7 +59,7 @@ const Hero = () => {
           }}
         ></div>
         <div 
-          className="absolute w-64 h-64 bg-green-500/25 rounded-full blur-3xl animate-pulse"
+          className="absolute w-64 h-64 bg-blue-500/25 rounded-full blur-3xl animate-pulse"
           style={{
             left: `${60 + mousePosition.x * 0.015}%`,
             top: `${10 + mousePosition.y * 0.015}%`,
@@ -73,14 +69,14 @@ const Hero = () => {
         ></div>
       </div>
 
-      {/* Dynamic Grid Pattern */}
+      {/* Grid Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div 
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px)
+              linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px)
             `,
             backgroundSize: '40px 40px',
             transform: `translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px) translateY(${scrollY * 0.2}px)`
@@ -89,7 +85,6 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-6 text-center relative z-10">
-        {/* Main Content Container */}
         <div 
           className="backdrop-blur-sm bg-white/5 rounded-3xl border border-white/10 p-8 md:p-12 shadow-2xl"
           style={{
@@ -101,7 +96,7 @@ const Hero = () => {
           <CTASection scrollY={scrollY} scrollToSection={scrollToSection} />
         </div>
         
-        {/* Enhanced Scroll Indicator */}
+        {/* Scroll Indicator */}
         <div 
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           style={{
@@ -110,7 +105,7 @@ const Hero = () => {
         >
           <button 
             onClick={() => scrollToSection('skills')}
-            className="group flex flex-col items-center text-emerald-400 hover:text-emerald-300 transition-all duration-500"
+            className="group flex flex-col items-center text-purple-400 hover:text-purple-300 transition-all duration-500"
           >
             <div className="animate-bounce group-hover:animate-none mb-2">
               <ArrowDown className="h-6 w-6" />
@@ -118,7 +113,7 @@ const Hero = () => {
             <div className="text-xs opacity-70 group-hover:opacity-100 transition-opacity duration-300 font-medium">
               SCROLL TO EXPLORE
             </div>
-            <div className="w-px h-16 bg-gradient-to-b from-emerald-400 to-transparent mt-2 opacity-50"></div>
+            <div className="w-px h-16 bg-gradient-to-b from-purple-400 to-transparent mt-2 opacity-50"></div>
           </button>
         </div>
       </div>

@@ -10,23 +10,23 @@ interface CTASectionProps {
 const CTASection = ({ scrollY, scrollToSection }: CTASectionProps) => {
   return (
     <>
-      {/* Enhanced CTA Buttons with New Design */}
+      {/* CTA Buttons */}
       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
         <Button 
           onClick={() => scrollToSection('projects')}
-          className="group relative bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-10 py-6 text-lg rounded-full transition-all duration-500 hover:scale-110 hover:-translate-y-2 shadow-lg hover:shadow-emerald-500/25 border-0 overflow-hidden"
+          className="group relative bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-10 py-6 text-lg rounded-full transition-all duration-500 hover:scale-110 hover:-translate-y-2 shadow-lg hover:shadow-purple-500/25 border-0 overflow-hidden"
         >
           <span className="relative z-10 flex items-center font-semibold">
             VIEW MY WORK
             <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
           </span>
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-700 to-teal-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </Button>
         
         <Button 
           onClick={() => scrollToSection('contact')}
           variant="outline" 
-          className="group relative border-2 border-emerald-400/50 text-emerald-300 hover:bg-emerald-400/10 hover:text-white hover:border-emerald-300 px-10 py-6 text-lg rounded-full transition-all duration-500 hover:scale-110 hover:-translate-y-2 backdrop-blur-sm bg-white/5 font-semibold"
+          className="group relative border-2 border-purple-400/50 text-purple-300 hover:bg-purple-400/10 hover:text-white hover:border-purple-300 px-10 py-6 text-lg rounded-full transition-all duration-500 hover:scale-110 hover:-translate-y-2 backdrop-blur-sm bg-white/5 font-semibold"
         >
           <span className="flex items-center">
             GET IN TOUCH
@@ -35,7 +35,7 @@ const CTASection = ({ scrollY, scrollToSection }: CTASectionProps) => {
         </Button>
       </div>
 
-      {/* Animated Status Indicator */}
+      {/* Status Indicator */}
       <div 
         className="flex items-center justify-center gap-3 text-sm text-gray-300"
         style={{
@@ -43,8 +43,8 @@ const CTASection = ({ scrollY, scrollToSection }: CTASectionProps) => {
         }}
       >
         <div className="relative">
-          <div className="w-3 h-3 bg-emerald-400 rounded-full animate-ping absolute"></div>
-          <div className="w-3 h-3 bg-emerald-400 rounded-full"></div>
+          <div className="w-3 h-3 bg-purple-400 rounded-full animate-ping absolute"></div>
+          <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
         </div>
         <span className="font-medium">AVAILABLE FOR NEW OPPORTUNITIES</span>
       </div>
